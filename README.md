@@ -3,6 +3,8 @@
 ## UFCSPA – Informática Biomédica
 ## Sistemas Operacionais – 19/02 – Prof. João Gluz
 
+### Grupo: Fabrício Vizzotto | Gabriel Burgos | Henrique Corrêa | Luiza Pinheiro
+
 ### Lista de Exercícios 3 – Exercícios sobre Threads
 
 **(1)** Desenvolva um programa que cria n threads, onde n é um número informado pelo usuário.
