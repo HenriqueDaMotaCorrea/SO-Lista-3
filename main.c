@@ -11,7 +11,7 @@ int segundos(){
 
 int inputN(){
   int n = 0;
-  printf("Número de threads: ");
+  printf("\n>> Número de threads: ");
   scanf("%d", &n);
   return n;
 }
@@ -20,19 +20,20 @@ void *rotinaThread(){
   int t = segundos();
   printf("Vai dormir por %d segundos\n", t);
   sleep(t);
-  printf("Bom dia mundo cruel!\n");
+  printf("\nBom dia mundo cruel!\n");
   return NULL;
 }
 
 int main(void) {
   int numThreads = inputN();
+  printf("\n>> Criando %d threads...\n", numThreads);
+  
   for(int i = 0; i < numThreads; i++){
     pthread_t thID;
-    printf("Criando %d threads...\n", numThreads);
     pthread_create(&thID, NULL, (void*)rotinaThread, NULL);
-    printf("Nova thread criada: %ld\n", thID);
+    printf("\n>> Nova thread criada: %ld\n", thID);
     pthread_join(thID, NULL);
   }
-  printf("Todas as threads terminaram\n");
+  printf("\n>> Todas as threads terminaram\n");
   return 0;
 }
