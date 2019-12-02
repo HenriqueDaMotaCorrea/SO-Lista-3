@@ -20,20 +20,24 @@ void *rotinaThread(){
   int t = segundos();
   printf("Vai dormir por %d segundos\n", t);
   sleep(t);
-  printf("\nBom dia mundo cruel!\n");
+  printf("Bom dia mundo cruel!\n");
   return NULL;
 }
 
 int main(void) {
   int numThreads = inputN();
-  printf("\n>> Criando %d threads...\n", numThreads);
-  
+  printf("\n>> Criando %d threads...\n\n", numThreads);
+  pthread_t thID[numThreads];
+
   for(int i = 0; i < numThreads; i++){
-    pthread_t thID;
-    pthread_create(&thID, NULL, (void*)rotinaThread, NULL);
-    printf("\n>> Nova thread criada: %ld\n", thID);
-    pthread_join(thID, NULL);
+    pthread_create(&thID[i], NULL, (void*)rotinaThread, NULL);
+    printf(">> Nova thread criada: %ld\n", thID[i]);
   }
+
+   for(int i = 0; i < numThreads; i++){
+    pthread_join(thID[i], NULL);
+  }
+
   printf("\n>> Todas as threads terminaram\n");
   return 0;
 }
