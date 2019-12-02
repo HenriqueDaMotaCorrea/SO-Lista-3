@@ -20,7 +20,7 @@ void *rotinaThread(){
   int t = segundos();
   printf("Vai dormir por %d segundos\n", t);
   sleep(t);
-  printf("Bom dia mundo cruel!");
+  printf("Bom dia mundo cruel!\n");
   return NULL;
 }
 
