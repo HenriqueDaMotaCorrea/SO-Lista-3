@@ -25,12 +25,14 @@ void *rotinaThread(){
 }
 
 int main(void) {
-  pthread_t thID;
   int numThreads = inputN();
-  printf("Criando %d threads...\n", numThreads);
-  pthread_create(&thID, NULL, (void*)rotinaThread(), NULL);
-  printf("Nova thread criada: %ld\n", thID);
-  pthread_join(thID, NULL);
+  for(int i = 0; i < numThreads; i++){
+    pthread_t thID;
+    printf("Criando %d threads...\n", numThreads);
+    pthread_create(&thID, NULL, (void*)rotinaThread, NULL);
+    printf("Nova thread criada: %ld\n", thID);
+    pthread_join(thID, NULL);
+  }
   printf("Todas as threads terminaram\n");
   return 0;
 }
